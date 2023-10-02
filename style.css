@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #5fb1a3;
+}
+
+.navigation {
+  width: 70px;
+  height: 100vh;
+  /* 自分の推測だと、この要素の子要素で absolute が設定されたときはこの要素を基準とした絶対値が当てられる */
+  position: relative;
+  background-color: #4d4c86;
+  box-shadow: 10px 0 0 #c77946;
+  border-left: 10px solid #4d4c86;
+  overflow-x: hidden;
+  transition: all 0.5s;
+}
+
+.navigation:hover {
+  width: 300px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.navigation ul li {
+  list-style: none;
+  display: block;
+  width: 100%;
+  position: relative;
+  border-radius: 15px;
+}
+
+.navigation ul li:hover {
+  background-color: #38376f7f;
+}
+
+.navigation ul li.active {
+  background-color: #c77946;
+}
+
+.navigation ul li.active::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: -30px;
+  right: 0;
+  border-radius: 50%;
+  box-shadow: 15px 15px 0 #c77946;
+}
+
+.navigation ul li.active::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  right: 0;
+  border-radius: 50%;
+  box-shadow: 15px -15px 0 #c77946;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.navigation ul li a .icon {
+  display: block;
+  min-width: 45px;
+  height: 60px;
+  line-height: 70px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+  font-size: 1.5rem;
+}
+
+.navigation ul li a .title {
+  padding-left: 10px;
+  height: 60px;
+  line-height: 60px;
+  /* 文章が折り返さなくなる */
+  white-space: nowrap;
+}
